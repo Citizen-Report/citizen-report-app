@@ -4,7 +4,7 @@ module.exports = {
   mode: 'development',
   entry: './client/index.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'client/dist'),
     filename: 'bundle.js'
   },
 
@@ -36,6 +36,7 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: path.resolve(__dirname, 'client')
+    contentBase: path.resolve(__dirname, 'client'),
+
   }
 }
