@@ -1,9 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
+import HomePage from './components/HomePage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const App = props =>{
-    return(
-        <h1>Hey world!</h1>
+const App = props => {
+    return (
+        <HomePage />
     )
 }
 
