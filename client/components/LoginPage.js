@@ -10,7 +10,7 @@ const LoginPage = props => {
 
   return (
     
-    <Container className="d-flex height justify-content-center align-items-center">
+    <Container className="d-flex h-66 justify-content-center align-items-center">
       
       <Form>
         <h3>Please Sign In</h3>
