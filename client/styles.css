@@ -1,0 +1,52 @@
+/* {
+  margin: 2;
+  padding: 0;
+} */
+/* #app {
+  height: 100vh;
+  width: 100vw; 
+  width: 100%;
+  padding: 15px;
+  margin: auto;
+} */
+
+/* .vertical-center {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+} */
+/* 
+
+body {
+   display: flex;
+  align-items: center; 
+  margin: 230px;
+} */
+
+/* .form-signin {
+  width: 100%;
+
+  padding: 15px;
+  margin: auto;
+} */
+
+body {
+  background-image: linear-gradient(
+      rgba(228, 228, 228, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url('images/citybg.jpg');
+
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.Container {
+  height: 66vh;
+}
