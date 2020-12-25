@@ -8,5 +8,4 @@ const App = props => {
         <HomePage />
     )
 }
-
 render(<App />, document.getElementById('app'));
