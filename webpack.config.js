@@ -37,6 +37,6 @@ module.exports = {
 
   devServer: {
     contentBase: path.resolve(__dirname, 'client'),
-
+    historyApiFallback: true, 
   }
 }
