@@ -27,13 +27,13 @@ app.use((err, req, res, next) => {
   res.status(errorObj.status).json(errorObj.message);
   
   // Not sure about this part because we aldready sent the response above how come it will continue and execute the code below
-  // err.statusCode = err.statusCode || 500;
-  // err.status = err.status || 'error';
+  err.statusCode = err.statusCode || 500;
+  err.status = err.status || 'error';
 
-  // res.status(err.statusCode).json({
-  //   status: err.status,
-  //   message: err.message
-  // });
+  res.status(err.statusCode).json({
+    status: err.status,
+    message: err.message
+  });
 });
 
 app.listen(PORT, () => { console.log('Server is listening on port ', PORT) })
