@@ -5,12 +5,17 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import GoogleLogin from 'react-google-login';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../redux/authActions';
 
 
 const LoginPage = props => {
 
+  const dispatch = useDispatch();
+
   const onSuccess = googleUser => {
     console.log(googleUser);
+    dispatch(loginSuccess(googleUser));
   }
 
   const onFailure = error => {
