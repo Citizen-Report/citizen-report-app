@@ -18,6 +18,6 @@ export default (state = initialState, action) => {
         case LOGOUT_SUCCESSFUL:
             return initialState
         default:
-            return initialState;
+            return state;
     }
 }
