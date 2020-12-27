@@ -6,7 +6,8 @@ import GoogleLogin from 'react-google-login';
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../redux/authActions';
 import { Alert, Button } from 'react-bootstrap';
-import { getComplaints } from '../redux/complaintsActions';
+import { getComplaints, createComplaints } from '../redux/complaintsActions';
+
 
 
 const LoginPage = props => {
@@ -41,6 +42,8 @@ const LoginPage = props => {
           </Alert>
 
           <Button onClick={() => {dispatch(getComplaints())}}>Get my complaints!</Button>
+          <Button onClick={() => {dispatch(createComplaints())}}>Create complaints!</Button>
+
 
         </Col>
       </Row>

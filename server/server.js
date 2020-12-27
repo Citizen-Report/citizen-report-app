@@ -3,8 +3,10 @@ const app = express();
 const PORT = 3000;
 const bodyParser = require('body-parser');
 const reportsRouter = require('./routes/reportsRouter')
+const cors = require('cors');
 
 // Parse the request body
+app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
