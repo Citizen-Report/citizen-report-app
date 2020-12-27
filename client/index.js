@@ -11,11 +11,13 @@ import HomePage from './components/HomePage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UpdateComplaintPage from './components/UpdateComplaintPage';
 import LoginPage from './components/LoginPage';
+import Navigation from './components/Navigation';
 
 const App = props => {
     return (
         <>
             <Router>
+                <Navigation />
                 <Switch>
                     <Route path="/complaint/:complaintId">
                         <UpdateComplaintPage />
