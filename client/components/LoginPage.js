@@ -4,15 +4,24 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import GoogleLogin from 'react-google-login';
 
 
 const LoginPage = props => {
+
+  const onSuccess = googleUser => {
+    console.log(googleUser);
+  }
+
+  const onFailure = error => {
+    console.log(error)
+  }
 
   return (
     
     <Container className="d-flex h-66 justify-content-center align-items-center">
       
-      <Form>
+      {/* <Form>
         <h3>Please Sign In</h3>
         <Form.Group controlId="formUsername">
           <Form.Control type="text" placeholder="Enter username" />
@@ -25,7 +34,14 @@ const LoginPage = props => {
         <Button className="w-100" variant="primary" type="submit">
           Sign In
         </Button>
-      </Form>
+      </Form> */}
+
+      <GoogleLogin 
+        clientId="591081752316-fisf1og4etovgh35bcg1l99kdo5bgd2r.apps.googleusercontent.com"
+        buttonText="Login"
+        onSuccess={onSuccess}
+        onFailure={onFailure}
+      />
       
     </Container>
     

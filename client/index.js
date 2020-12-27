@@ -10,6 +10,7 @@ import HomePage from './components/HomePage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UpdateComplaintPage from './components/UpdateComplaintPage';
+import LoginPage from './components/LoginPage';
 
 const App = props => {
     return (
@@ -18,6 +19,9 @@ const App = props => {
                 <Switch>
                     <Route path="/complaint/:complaintId">
                         <UpdateComplaintPage />
+                    </Route>
+                    <Route path="/login">
+                        <LoginPage />
                     </Route>
                     <Route path='/'>
                         <HomePage />
