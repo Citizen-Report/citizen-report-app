@@ -9,13 +9,16 @@ import {
     Marker, 
     InfoWindow
 } from 'react-google-maps';
+import ComplaintModal from './UpdateComplaintPage';
+import apiKey from '../../config';
 
 
-//how can we hide this?
-const apiKey = "AIzaSyCHPBxy5Yegz46o62yA157pUi73HXgrH4s";
 
 const HomePage = props => {
-
+    const [show, setShow] = useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     const mockData = [
         {
             id: 1,
@@ -107,7 +110,8 @@ const HomePage = props => {
                                 <td>{data.user}</td>
                                 <td>{data.status}</td>
                                 <td>
-                                    <Button>Update</Button>
+
+                                    <ComplaintModal handleClose={handleClose} handleShow={handleShow} show={show} />
                                 </td>
     
                             </tr>)
