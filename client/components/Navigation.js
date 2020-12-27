@@ -17,7 +17,7 @@ const Navigation = props => {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/login">Auth</Link>
-                        </li>
+                        </li>                       
                     </ul>
                 </div>
                 <span className="navbar-text">
