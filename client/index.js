@@ -9,7 +9,7 @@ import {
 import HomePage from './components/HomePage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import UpdateComplaintPage from './components/UpdateComplaintPage';
+import ComplaintModal from './components/UpdateComplaintPage';
 
 const App = props => {
     return (
@@ -17,9 +17,9 @@ const App = props => {
             <Router>
                 <Switch>
                     <Route path="/complaint/:complaintId">
-                        <UpdateComplaintPage />
+                        <ComplaintModal />
                     </Route>
-                    <Route path='/'>
+                    <Route path='/' exact>
                         <HomePage />
                     </Route>
                 </Switch>
