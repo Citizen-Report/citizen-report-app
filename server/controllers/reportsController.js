@@ -18,25 +18,25 @@ reportsController.addComplaint = (req, res, next) => {
   // Get all the information you need to create a new complaint from the request body
   const { location, zipcode, lat_lon, category, description, user_ip, status, created_on } = req.body;
 
-  const query = {
-    text: "INSERT INTO reports(location, zipcode, lat_lon, category, description, user_ip, status, created_on )",
-    values: [location, zipcode, lat_lon, category, description, user_ip, status, created_on]
-  }
+  const text = `INSERT INTO reports(id, location, zipcode, lat_lon, category, description, user_ip, status, created_on) VALUES (DEFAULT, '${location}', '${zipcode}', '${lat_lon}', '${category}', '${description}', '${user_ip}', '${status}', '${created_on}') RETURNING *`;
        
-    db.query(query)
+    db.query(text)
       .then(insertedComplaint => {
+        console.log(insertedComplaint)
         res.locals.insertedComplaint = insertedComplaint.rows;
         return next();
       })
-      .catch(err => next({error: err}))
-
+      .catch(err => {
+        console.log(err);
+        next({ error: err })
+      })
 };
 
 // Update a specific complaint from the database
 reportsController.updateComplaint = (req, res, next) => {
   const { id } = req.params;
-  console.log(id);
-  const text = `UPDATE reports SET status = 'Not checked' WHERE id = ${id} RETURNING *`;
+  const { location, zipcode, lat_lon, category, description, user_ip, status, created_on } = req.body;
+  const text = `UPDATE reports SET id = ${id} SET location = ${location} SET zipcode = ${zipcode} SET lat_lon = ${lat_lon} SET category = ${category} SET description = ${description} SET user_ip = ${user_ip} SET status = ${status} SET created_on = ${created_on} WHERE id = ${id} RETURNING *`;
   
   db.query(text)
     .then(updatedComplaint => {
