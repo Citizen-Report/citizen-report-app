@@ -10,9 +10,8 @@ import {
     InfoWindow
 } from 'react-google-maps';
 
+const api_key = process.env.API_KEY;
 
-//how can we hide this?
-const apiKey = "AIzaSyCHPBxy5Yegz46o62yA157pUi73HXgrH4s";
 
 const HomePage = props => {
 
@@ -120,7 +119,7 @@ const HomePage = props => {
             <Container>
               <div style={{width: '77vw', height: '75vh'}}>
                 <WrappedMap 
-                  googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${apiKey}`}
+                  googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${api_key}`}
                   loadingElement={<div style={{ height: "100%"}} />}
                   containerElement={<div style={{ height: "100%"}} />}
                   mapElement={<div style={{ height: "100%"}} />}
