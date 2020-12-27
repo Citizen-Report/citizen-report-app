@@ -40,7 +40,6 @@ body {
       rgba(0, 0, 0, 0.7)
     ),
     url('images/citybg.jpg');
-
   height: 100vh;
   background-size: cover;
   background-position: center;
