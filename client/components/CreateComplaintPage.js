@@ -9,23 +9,14 @@ import { useDispatch } from 'react-redux';
 const CreateComplaintPage = props => {
   const dispatch = useDispatch();
   const [address, setAddress] = useState('');
+  const [zipcode, setZipcode] = useState('');
+  const [category, setCategory] = useState('Roads');
+  const [description, setDescription] = useState('');
    
   const getTimeStamp = () => { 
     let date = new Date();
     return date.toDateString();
   };
-
-  // const complaint = {
-  //   location: document.getElementById("formAddress").value,
-  //   zipcode: document.getElementById("formZipcode").value,
-  //   lat_lon: "37.97121, -122.35544",
-  //   category: document.getElementById("formCategory").value,
-  //   description: document.getElementById("formDescription").value,
-  //   user_ip: "059",
-  //   status: "Not checked",
-  //   created_on: getTimeStamp()
-  // }
-
 
   return (
     <Container>
@@ -38,12 +29,12 @@ const CreateComplaintPage = props => {
 
         <Form.Group controlId="formZipcode">
           <Form.Label>Zipcode</Form.Label>
-          <Form.Control type="text" placeholder="Zipcode" value="value" required/>
+          <Form.Control type="text" placeholder="Zipcode" value={zipcode} onChange={(event) => setZipcode(event.target.value)} required/>
         </Form.Group>
 
       <Form.Group controlId="formCategory">
         <Form.Label>Choose Category</Form.Label>
-        <Form.Control as="select">
+          <Form.Control as="select" value={category} onChange={(event) => setCategory(event.target.value)}>
           <option value="Roads">Roads</option>
           <option value="Waste Management">Waste Management</option>
           <option value="Water & Power">Water & Power</option>
@@ -54,14 +45,27 @@ const CreateComplaintPage = props => {
 
         <Form.Group controlId="formDescription">
           <Form.Label>Description</Form.Label>
-          <Form.Control type="text" placeholder="Description" value="value" required/>
+          <Form.Control type="text" placeholder="Description" value={description} onChange={(event) => setDescription(event.target.value)} required/>
         </Form.Group>
 
         {/* <Button variant="primary" type="submit">
           Submit
         </Button> */}
 
-        <Button type= "submit" onClick={() => {dispatch(createComplaints({ address }))}}>Create complaint!</Button>
+        <Button type="submit" onClick={() => {
+          dispatch(createComplaints(
+            {
+              location: address,
+              zipcode: zipcode,
+              lat_lon: "37.97121, -122.35544",
+              category: category,
+              description: description,
+              user_ip: "059",
+              status: "Not checked",
+              created_on: getTimeStamp()
+            }
+          ))
+        }}>Create complaint!</Button>
     </Form>
   </Container>
   )
