@@ -2,7 +2,7 @@
 const { Pool } = require('pg');
 
 // get the url from the elephant database 
-const PG_URI = 'postgres://wzkyzoiz:X-NrTxZA7LWj57zUk7Zp7c_YE18If4z2@suleiman.db.elephantsql.com:5432/wzkyzoiz';
+const PG_URI = require('../../serverConfig');
 
 // create an instance of the pool
 const pool = new Pool({
