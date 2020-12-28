@@ -23,47 +23,31 @@ const HomePage = props => {
 
     const [show, setShow] = useState(false);
 
+    // const mockData = [{
+    //     lat_lon: "34.052235, -118.243683"
+    // }]
+
     useEffect(() => {
         
       }, []);
     
+
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const mockData = [
-        {
-            id: 1,
-            location: 'Austin, TX',
-            complaint: 'Not cool enough',
-            category: 'Other',
-            user: 'DallasUser10',
-            status: 'Unchecked',
-            lat: 30.26437444740824,
-            lng: -97.73074764459251
-        },
-        {
-            id: 2,
-            location: 'Austin, Tx',
-            complaint: 'Pot hole',
-            category: 'infrastructure',
-            user: 'hipsterHaven',
-            status: 'resolved',
-            lat: 30.269795103609273,
-            lng: -97.73633684459246
-        }
-    ]
+    
     function Map() {
         //value of the state and the setter of the state
         const [selectedComplaint, setSelectedComplaint] = useState(null);
         return <GoogleMap
          defaultZoom={10} 
-         defaultCenter={{lat: 30.267153, lng: -97.743057}}
+         defaultCenter={{lat: 34.052235, lng: -118.243683}}
          >
-         {mockData.map((complaint) =>
+         {complaintsArray.map((complaint) =>
          <Marker key={complaint.id}
          position={{
-            lat: complaint.lat, 
-            lng: complaint.lng
+            lat: +((((complaint.lat_lon).split(','))[0]).trim()), 
+            lng: +((((complaint.lat_lon).split(','))[1]).trim())
          }}
          onClick={() => {
              //when you click on the complaint it sets selected to that complaint
@@ -75,8 +59,8 @@ const HomePage = props => {
     {selectedComplaint && (
         <InfoWindow 
         position={{
-            lat: selectedComplaint.lat, 
-            lng: selectedComplaint.lng
+            lat: +((((selectedComplaint.lat_lon).split(','))[0]).trim()), 
+            lng: +((((selectedComplaintlat_lon).split(','))[1]).trim())
         }}
         onCloseClick={() => {
             //sets selected complaint to null
@@ -84,7 +68,7 @@ const HomePage = props => {
         }}
         >
           <div>
-              <h2>{selectedComplaint.complaint}</h2>
+              <h2>{selectedComplaint.decription}</h2>
               <p>{selectedComplaint.status}</p>
           </div>
         </InfoWindow>
