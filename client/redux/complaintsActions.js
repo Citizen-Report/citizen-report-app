@@ -33,7 +33,7 @@ export const getComplaints = () => {
 //     user_ip:"059",
 //     status:"Not checked",
 //     created_on:"2020-12-23T01:48:43.000Z"}
-export const createComplaints = (dispatch, newComplaints) => {
+export const createComplaints = (newComplaints) => {
     return (dispatch) => {
         fetch('http://localhost:3000/api/complaints', {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
