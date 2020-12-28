@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
@@ -10,12 +11,22 @@ import {
     InfoWindow
 } from 'react-google-maps';
 import ComplaintModal from './UpdateComplaintPage';
+import { getComplaints } from '../redux/complaintsActions';
 import apiKey from '../../config';
 
 
 
 const HomePage = props => {
+    const dispatch = useDispatch();
+
+    const complaintsArray = useSelector(state => state.complaints.complaints);
+
     const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        
+      }, []);
+    
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -90,24 +101,22 @@ const HomePage = props => {
                 <Table striped bordered hover>
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>ID</th>
                             <th>Location</th>
-                            <th>Complaint</th>
                             <th>Category</th>
-                            <th>User</th>
+                            <th>Complaint</th>
                             <th>Current Status</th>
                             <th>Update Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {mockData.map((data)=> {
+                        {complaintsArray.map((data)=> {
                             return (
                             <tr>
                                 <td>{data.id}</td>
                                 <td>{data.location}</td>
-                                <td>{data.complaint}</td>
                                 <td>{data.category}</td>
-                                <td>{data.user}</td>
+                                <td>{data.description}</td>
                                 <td>{data.status}</td>
                                 <td>
 
