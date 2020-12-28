@@ -60,7 +60,7 @@ const HomePage = props => {
         <InfoWindow 
         position={{
             lat: +((((selectedComplaint.lat_lon).split(','))[0]).trim()), 
-            lng: +((((selectedComplaintlat_lon).split(','))[1]).trim())
+            lng: +((((selectedComplaint.lat_lon).split(','))[1]).trim())
         }}
         onCloseClick={() => {
             //sets selected complaint to null
@@ -68,8 +68,9 @@ const HomePage = props => {
         }}
         >
           <div>
-              <h2>{selectedComplaint.decription}</h2>
+              <h2>{selectedComplaint.description}</h2>
               <p>{selectedComplaint.status}</p>
+              <p>{selectedComplaint.location}</p>
           </div>
         </InfoWindow>
     )}
@@ -111,7 +112,7 @@ const HomePage = props => {
                         })}
                     </tbody>
                 </Table>
-                <Button variant="primary">This is a button</Button>
+                
             </Container>
 
             <Container>
