@@ -9,7 +9,7 @@ export default (state=initialState, action) => {
         case SUCCESSFUL_GET_COMPLAINTS:
             return {
                 ...state,
-                complaints: action.payload
+                complaints: [...action.payload]
             }
         default:
             return state;
