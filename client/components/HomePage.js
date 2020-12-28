@@ -26,6 +26,12 @@ const HomePage = props => {
 
     useEffect(() => {
         // getComplaints();
+        dispatch(getComplaints());
+        // const interval=setInterval(()=>{
+        //     getComplaints()
+        //    },10000)
+             
+        // return()=>clearInterval(interval)
         
       }, []);
     
