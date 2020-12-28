@@ -22,12 +22,16 @@ const HomePage = props => {
     const complaintsArray = useSelector(state => state.complaints.complaints);
 
     const [show, setShow] = useState(false);
-
-    // const mockData = [{
-    //     lat_lon: "34.052235, -118.243683"
-    // }]
+    // const [comps, setComps] = useState([]);
 
     useEffect(() => {
+        // getComplaints();
+        dispatch(getComplaints());
+        // const interval=setInterval(()=>{
+        //     getComplaints()
+        //    },10000)
+             
+        // return()=>clearInterval(interval)
         
       }, []);
     
