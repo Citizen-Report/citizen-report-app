@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Button from 'react-bootstrap/Button';
+import { Modal, Button, DropdownButton, Dropdown  } from 'react-bootstrap'
+// import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
+import "bootstrap/dist/css/bootstrap.min.css";
 import Container from 'react-bootstrap/Container';
 import {
     GoogleMap, 
@@ -10,11 +12,9 @@ import {
     Marker, 
     InfoWindow
 } from 'react-google-maps';
-import ComplaintModal from './UpdateComplaintPage';
+// import ComplaintModal from './UpdateComplaintPage';
 import { getComplaints } from '../redux/complaintsActions';
 import apiKey from '../../config';
-
-
 
 const HomePage = props => {
     const dispatch = useDispatch();
@@ -22,23 +22,77 @@ const HomePage = props => {
     const complaintsArray = useSelector(state => state.complaints.complaints);
 
     const [show, setShow] = useState(false);
-    // const [comps, setComps] = useState([]);
+    const [currentForm, setCurrentForm] = useState({});
 
     useEffect(() => {
-        // getComplaints();
         dispatch(getComplaints());
-        // const interval=setInterval(()=>{
-        //     getComplaints()
-        //    },10000)
-             
-        // return()=>clearInterval(interval)
-        
+
       }, []);
     
-
-  
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    function ComplaintModal({ currentForm }) {
+        // const currComplaint = JSON.stringify(currentForm)
+    
+        return (
+          <>
+            
+            <Modal
+              size={'lg'}
+              show={true}
+              onHide={handleClose}
+              backdrop="static"
+              keyboard={false}
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>Current Complaint Details</Modal.Title>
+              </Modal.Header>
+              <Modal.Body >
+                  <Table>
+                  <thead>
+                        <tr>
+                            <th>Location</th>
+                            <th>Zip Code</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Current Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>{currentForm.location}</td>
+                                <td>{currentForm.zipcode}</td>
+                                <td>{currentForm.category}</td>
+                                <td>{currentForm.description}</td>
+                                <td>{currentForm.status}</td>
+                            </tr>
+                    </tbody>
+                  </Table>
+                <div className='d-flex justify-content-around'>
+                <DropdownButton id="dropdown-basic-button" title="Category">
+                    <Dropdown.Item href="#/action-1">Undefined</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Water and Power</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Street Repair</Dropdown.Item>
+                </DropdownButton>
+            
+                <DropdownButton id="dropdown-basic-button" title="Status">
+                    <Dropdown.Item href="#/action-1">Not Checked</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">In Progress</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Resolved</Dropdown.Item>
+                </DropdownButton>
+                </div>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose} >
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </>
+        );
+      }
+    
     
     function Map() {
         //value of the state and the setter of the state
@@ -83,10 +137,22 @@ const HomePage = props => {
         
     }
     const WrappedMap = withScriptjs(withGoogleMap(Map));
-
+    const onSelectComplaintHandler = (id) => {
+        console.log(id)
+        const selected = complaintsArray.find(curr => id === curr.id);
+        console.log(selected);
+        setCurrentForm({...selected});
+        console.log(currentForm);
+        setShow(true);
+    } 
     return (
         <>
             <Container>
+                { show ? (<div>
+                    {JSON.stringify(currentForm)}
+                    {<ComplaintModal currentForm={currentForm} />}
+                </div>): <p>Modal Hidden</p>}
+                
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -108,8 +174,8 @@ const HomePage = props => {
                                 <td>{data.description}</td>
                                 <td>{data.status}</td>
                                 <td>
-
-                                    <ComplaintModal handleClose={handleClose} handleShow={handleShow} show={show} />
+                                    <Button onClick={() => {onSelectComplaintHandler(data.id)}}>Update</Button>
+                                    {/* <ComplaintModal handleClose={handleClose} handleShow={handleShow} show={show} /> */}
                                 </td>
     
                             </tr>)
