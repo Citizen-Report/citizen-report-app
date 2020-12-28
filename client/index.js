@@ -11,6 +11,7 @@ import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
 import UpdateComplaintPage from './components/UpdateComplaintPage';
 import Navigation from './components/Navigation';
+import CreateComplaintPage from './components/CreateComplaintPage'
 
 import store from './redux/store';
 
@@ -31,9 +32,13 @@ const App = props => {
                         <Route path="/login">
                             <LoginPage />
                         </Route>
+                        <Route path="/createComplaint">
+                            <CreateComplaintPage />
+                        </Route>
                         <Route path='/'>
                             <HomePage />
                         </Route>
+                        
                     </Switch>
                 </Router>
             </Provider>

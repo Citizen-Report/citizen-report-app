@@ -15,6 +15,9 @@ const Navigation = props => {
                         <li className="nav-item active">
                             <Link className="nav-link" to="/">Dashboard</Link>
                         </li>
+                        <li className="nav-item active">
+                            <Link className="nav-link" to="/createComplaint">Create Complaint</Link>
+                        </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/login">Auth</Link>
                         </li>                       
