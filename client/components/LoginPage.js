@@ -6,15 +6,16 @@ import GoogleLogin from 'react-google-login';
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../redux/authActions';
 import { Alert, Button } from 'react-bootstrap';
-import { getComplaints, createComplaints } from '../redux/complaintsActions';
+import { getComplaints, createComplaints, updateComplaints } from '../redux/complaintsActions';
 
 
 
 const LoginPage = props => {
 
   const dispatch = useDispatch();
-
+  
   const onSuccess = googleUser => {
+    
     console.log(googleUser);
     dispatch(loginSuccess(googleUser));
   }
@@ -22,6 +23,17 @@ const LoginPage = props => {
   const onFailure = error => {
     console.log(error)
   }
+
+  const test1 = {
+        id:"2",
+        location:"1000 Trenton Blvd, San Pablo, CA",
+        zipcode:"94806",
+        lat_lon:"37.97121, -122.35544",
+        category:"Animal Control",
+        description:"wild animal, large",
+        user_ip:"059",
+        status:"Not checked",
+        created_on:"2020-12-23T01:48:43.000Z"}
 
   return (
 
@@ -43,6 +55,7 @@ const LoginPage = props => {
 
           <Button onClick={() => {dispatch(getComplaints())}}>Get my complaints!</Button>
           <Button onClick={() => {dispatch(createComplaints())}}>Create complaints!</Button>
+          <Button onClick={() => {dispatch(updateComplaints(test1))}}>Update complaints!</Button>
 
 
         </Col>
