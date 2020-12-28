@@ -53,3 +53,23 @@ export const createComplaints = (newComplaints) => {
 
     }
 }
+export const updateComplaints = (updatedComplaint) => {
+    return (dispatch) => {
+        fetch(`http://localhost:3000/api/complaints/${updatedComplaint.id}`, {
+            method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+            headers: {
+              'Content-Type': 'application/json'
+              // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(updatedComplaint) // body data type must match "Content-Type" header
+          })
+          .then((response) => {
+            console.log(response);
+            return response.json();
+          })
+          .then((data) => {
+            dispatch(getComplaints());
+          })
+
+    }
+}
