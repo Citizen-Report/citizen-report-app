@@ -244,7 +244,7 @@ const createnewdata = () => {
 let delay = 1000;
 setInterval(createnewdata, delay);
 // datatotal should be the number of reports you want to generate
-let datatotal = 1;
+let datatotal = 10;
 if (num > datatotal) clearInterval(createnewdata);
 
 //make sure to return the fully generated list only after the appropriate delay

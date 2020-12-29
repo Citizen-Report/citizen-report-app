@@ -53,9 +53,9 @@ const LoginPage = props => {
           />
           </Alert>
 
-          <Button onClick={() => {dispatch(getComplaints())}}>Get my complaints!</Button>
+          {/* <Button onClick={() => {dispatch(getComplaints())}}>Get my complaints!</Button>
           <Button onClick={() => {dispatch(createComplaints())}}>Create complaints!</Button>
-          <Button onClick={() => {dispatch(updateComplaints(test1))}}>Update complaints!</Button>
+          <Button onClick={() => {dispatch(updateComplaints(test1))}}>Update complaints!</Button> */}
 
 
         </Col>
