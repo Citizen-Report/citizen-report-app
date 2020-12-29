@@ -19,7 +19,9 @@ const CreateComplaintPage = props => {
     let date = new Date();
     return date.toDateString();
   };
+
   const history = useHistory();
+  
   const handleClick = async () => {
     let lat;
     let long;

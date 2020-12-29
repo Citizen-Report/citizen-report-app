@@ -9,7 +9,6 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 // handle the request to localhost:3000
 app.use('/', reportsRouter);
 
@@ -20,7 +19,7 @@ app.use((req, res) => res.sendStatus(404));
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
-    status: 400,
+    status: 500,
     message: { err: 'An error occured' }
   };
 
