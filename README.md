@@ -15,17 +15,21 @@ Responsible parties (Cities) can login, also with Google, to update the status o
 
 ## Let's Get Started!
 * Fork & Clone this repo
-* Run `npm install`
-* Run `npm run dev`
+* Run &nbsp;`npm install`
+* Run &nbsp;`node server/server.js`
+* Run (in a separate terminal) &nbsp;`npm run dev`
 * Open your browser to [local8080](http://localhost:8080)
 
 <br />
 
 ## What's Working?
-* [Dashboard](http://localhost:8080/dashboard) (and home page) loads an interactive map from Google maps'
+* [Dashboard](http://localhost:8080/dashboard) (and home page) loads an interactive map from Google maps
+* Map displays pins of reports with valid Lat/Long entries
+* [Create Complaint](http://localhost:8080/createComplaint) works to add a complaint to the database
 * [login](http://localhost:8080/login) loads a page with a Google Login button
   * Page displays "You are not logged in" or your Google avatar + " | Hi, `name`"
   * G Login button opens a modal for OAuth2, allowing users to select their google account to login
+  * 
 * On the Backend
   * Database uses Postgres
   * Full CRUD functionality for reports and citizens tables

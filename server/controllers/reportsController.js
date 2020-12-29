@@ -35,9 +35,9 @@ reportsController.addComplaint = (req, res, next) => {
 // Update a specific complaint from the database
 reportsController.updateComplaint = (req, res, next) => {
   const { id } = req.params;
-  const { location, zipcode, lat_lon, category, description, user_ip, status, created_on } = req.body;
-  const text = `UPDATE reports SET id = ${id} SET location = ${location} SET zipcode = ${zipcode} SET lat_lon = ${lat_lon} SET category = ${category} SET description = ${description} SET user_ip = ${user_ip} SET status = ${status} SET created_on = ${created_on} WHERE id = ${id} RETURNING *`;
-  
+  const {  category, status} = req.body;
+  const text = `UPDATE reports SET category = '${category}', status = '${status}' WHERE id = ${id} RETURNING *`;
+
   db.query(text)
     .then(updatedComplaint => {
       res.locals.updatedComplaint = updatedComplaint.rows;
