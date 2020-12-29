@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import { createComplaints } from '../redux/complaintsActions';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 
 const CreateComplaintPage = props => {
@@ -17,6 +18,11 @@ const CreateComplaintPage = props => {
     let date = new Date();
     return date.toDateString();
   };
+
+  let history = useHistory();
+  function afterClick() {
+    history.push("/dashboard");
+  }
 
   return (
     <Container>
@@ -64,9 +70,10 @@ const CreateComplaintPage = props => {
               status: "Not checked",
               created_on: getTimeStamp()
             }
-          ))
+          )), afterClick()
         }}>Create complaint!</Button>
     </Form>
+    
   </Container>
   )
 }
