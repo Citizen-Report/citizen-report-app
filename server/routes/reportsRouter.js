@@ -24,7 +24,7 @@ router.post('/api/complaints', reportsController.addComplaint, (req, res) => {
 
 // Update request to the specific complaint within the modal
 // when it is clicked on the tools icon from the table,
-router.put('/api/complaints/:id', reportsController.updateComplaint, (req, res) => {
+router.patch('/api/complaints/:id', reportsController.updateComplaint, (req, res) => {
   res.status(200).json(res.locals.updatedComplaint);
 })
 
