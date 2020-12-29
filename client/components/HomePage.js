@@ -149,9 +149,8 @@ const HomePage = props => {
         <>
             <Container>
                 { show ? (<div>
-                    {JSON.stringify(currentForm)}
                     {<ComplaintModal currentForm={currentForm} />}
-                </div>): <p>Modal Hidden</p>}
+                </div>): <p></p>}
                 
                 <Table striped bordered hover>
                     <thead>
