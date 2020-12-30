@@ -50,7 +50,7 @@ const HomePage = props => {
           <Table>
             <thead>
               <tr>
-                <th>Location</th>
+                <th>Address</th>
                 <th>Zip Code</th>
                 <th>Category</th>
                 <th>Description</th>
@@ -59,7 +59,7 @@ const HomePage = props => {
             </thead>
             <tbody>
               <tr>
-                <td>{currentForm.location}</td>
+                <td>{currentForm.address}</td>
                 <td>{currentForm.zipcode}</td>
                 <td>{currentForm.category}</td>
                 <td>{currentForm.description}</td>
@@ -101,8 +101,8 @@ const HomePage = props => {
         <Marker
           key={complaint.id}
           position={{
-            lat: +((((complaint.lat_lon).split(','))[0]).trim()), 
-            lng: +((((complaint.lat_lon).split(','))[1]).trim())
+            lat: +(complaint.latitude), 
+            lng: +(complaint.longitude)
           }}
           onClick={() => {
           //when you click on the complaint it sets selected to that complaint
@@ -113,8 +113,8 @@ const HomePage = props => {
       {selectedComplaint && (
         <InfoWindow 
           position={{
-            lat: +((((selectedComplaint.lat_lon).split(','))[0]).trim()), 
-            lng: +((((selectedComplaint.lat_lon).split(','))[1]).trim())
+            lat: +(selectedComplaint.latitude), 
+            lng: +(selectedComplaint.longitude)
           }}
           onCloseClick={() => {
             //sets selected complaint to null
@@ -124,7 +124,7 @@ const HomePage = props => {
           <div>
             <h2>{selectedComplaint.description}</h2>
             <p>{selectedComplaint.status}</p>
-            <p>{selectedComplaint.location}</p>
+            <p>{selectedComplaint.address}</p>
           </div>
         </InfoWindow>
       )}
@@ -149,7 +149,7 @@ const HomePage = props => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Location</th>
+              <th>Address</th>
               <th>Category</th>
               <th>Complaint</th>
               <th>Current Status</th>
@@ -161,7 +161,7 @@ const HomePage = props => {
               return (
                 <tr>
                   <td>{data.id}</td>
-                  <td>{data.location}</td>
+                  <td>{data.address}</td>
                   <td>{data.category}</td>
                   <td>{data.description}</td>
                   <td>{data.status}</td>

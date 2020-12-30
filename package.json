@@ -7,8 +7,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors",
-    "dev": "webpack serve",
-    "build": "webpack"
+    "dev": "cross-env NODE_ENV=development concurrently \"webpack-dev-server --open\" \"npx nodemon server/server.js\"",
+    "start": "cross-env NODE_ENV=production npx nodemon server/server.js",
+    "build": "cross-env NODE_ENV=production npx webpack"
   },
   "repository": {
     "type": "git",
@@ -34,8 +35,12 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^23.4.2",
-    "webpack": "^5.11.0",
-    "webpack-cli": "^4.2.0"
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-hot-middleware": "^2.25.0",
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.3"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
