@@ -13,7 +13,6 @@ const LoginPage = props => {
   const dispatch = useDispatch();
   
   const onSuccess = googleUser => {
-    
     console.log(googleUser);
     dispatch(loginSuccess(googleUser));
   }
@@ -23,11 +22,11 @@ const LoginPage = props => {
   }
 
   return (
-    
     <Container>
       <Row>
         <Col>
           <Alert variant="info">
+            <h1>Welcome to Citizen Report!</h1>
            <h1>Hey!</h1>
             <hr />
             <p>Login to access your city management dashboard.</p>
@@ -39,12 +38,9 @@ const LoginPage = props => {
             onFailure={onFailure}
           />
           </Alert>
-
-
         </Col>
       </Row>
     </Container>
-
   )
 }
 
