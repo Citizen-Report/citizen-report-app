@@ -15,8 +15,8 @@ reportsController.getComplaints = (req, res, next) => {
 // Add a new complaint into your database
 reportsController.addComplaint = (req, res, next) => {
   // Get all the information you need to create a new complaint from the request body
-  const { location, zipcode, lat_lon, category, description, user_ip, status, created_on } = req.body;
-  const text = `INSERT INTO reports(id, location, zipcode, lat_lon, category, description, user_ip, status, created_on) VALUES (DEFAULT, '${location}', '${zipcode}', '${lat_lon}', '${category}', '${description}', '${user_ip}', '${status}', '${created_on}') RETURNING *`;
+  const { email, address, city, zipcode, latitude, longitude, category, description, status, created_on } = req.body;
+  const text = `INSERT INTO reports(id, email, address, city, zipcode, latitude, longitude, category, description, status, created_on) VALUES (DEFAULT, '${email}', '${address}', '${city}', '${zipcode}', '${latitude}', '${longitude}', '${category}', '${description}', '${status}', '${created_on}') RETURNING *`;
   db.query(text)
     .then(insertedComplaint => {
       console.log(insertedComplaint)
