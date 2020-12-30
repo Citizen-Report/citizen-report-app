@@ -9,6 +9,7 @@ import apiKey from '../../config';
 
 const CreateComplaintPage = props => {
   const dispatch = useDispatch();
+  const [email, setEmail] = useState('')
   const [address, setAddress] = useState('');
   const [zipcode, setZipcode] = useState('');
   const [category, setCategory] = useState('Roads');
@@ -22,26 +23,33 @@ const CreateComplaintPage = props => {
   const history = useHistory();
   
   const handleClick = async () => {
-    let lat;
-    let long;
+    //get lat and long from zipcode entry
+    let latitude;
+    let longitude;
     const response = await fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURI(address) + '&key=' + apiKey);
     const data = await response.json();
-    lat = data.results[0].geometry.location.lat;
-    long = data.results[0].geometry.location.lng;
-    console.log(lat, long);
-    //redirect to root after submitting new complaint
+    latitude = data.results[0].geometry.location.lat;
+    longitude = data.results[0].geometry.location.lng;
+
+    //get city from zipcode entry -> look into googleapi
+    let city = 'Defaultington';
+
+    //send dispatch once we have all data
     dispatch(createComplaints(
       {
-        location: address,
+        email: email,
+        address: address,
+        city: city,
         zipcode: zipcode,
-        lat_lon: `${lat}, ${long}`,
+        latitude: latitude,
+        longitude: longitude,
         category: category,
         description: description,
-        user_ip: "059",
         status: "Not checked",
         created_on: getTimeStamp()
       }
     ));
+      //redirect to root after submitting new complaint
     history.push("/")
   };
     
@@ -49,9 +57,13 @@ const CreateComplaintPage = props => {
     <Container>
       <h3>Enter Your Complaint Details</h3>
       <Form className="needs-validation">
+        <Form.Group controlId="formEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} required/>
+        </Form.Group>
         <Form.Group controlId="formAddress">
           <Form.Label>Address</Form.Label>
-          <Form.Control type="text" placeholder="Enter address" value={address} onChange={(event) => setAddress(event.target.value)} required/>
+          <Form.Control type="text" placeholder="Address, City, and State" value={address} onChange={(event) => setAddress(event.target.value)} required/>
         </Form.Group>
         <Form.Group controlId="formZipcode">
           <Form.Label>Zipcode</Form.Label>
@@ -69,7 +81,7 @@ const CreateComplaintPage = props => {
         </Form.Group>
         <Form.Group controlId="formDescription">
           <Form.Label>Description</Form.Label>
-          <Form.Control type="text" placeholder="Description" value={description} onChange={(event) => setDescription(event.target.value)} required/>
+          <Form.Control type="text" placeholder="A Short Description" value={description} onChange={(event) => setDescription(event.target.value)} required/>
         </Form.Group>
         <Button onClick={() => {
           handleClick();
