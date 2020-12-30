@@ -27,6 +27,7 @@ const LoginPage = props => {
         <Col>
           <Alert variant="info">
             <h1>Welcome to Citizen Report!</h1>
+           <h1>Hey!</h1>
             <hr />
             <p>Login to access your city management dashboard.</p>
             <p>If you have trouble accessing the dashboard, contact your IT support representative.</p>
