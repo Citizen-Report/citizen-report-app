@@ -3,7 +3,7 @@ import authReducer from '../client/redux/reducers/authReducer';
 import { SUCCESSFUL_CREATE_COMPLAINTS, SUCCESSFUL_DELETE_COMPLAINTS, SUCCESSFUL_GET_COMPLAINTS } from "../client/redux/actionTypes/complaintsActionTypes";
 import { LOGIN_SUCCESSFUL, LOGOUT_SUCCESSFUL } from "../client/redux/actionTypes/authActionTypes";
 
-describe('Complaints reducer', () => {
+xdescribe('Complaints reducer', () => {
   let state;
 
   beforeEach(() => {
@@ -29,7 +29,7 @@ describe('Complaints reducer', () => {
   })
 })
 
-describe('Auth reducer', () => {
+xdescribe('Auth reducer', () => {
   let state;
 
   beforeEach(() => {

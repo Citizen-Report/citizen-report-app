@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Modal, Button, DropdownButton, Dropdown  } from 'react-bootstrap'
 // import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import {
     GoogleMap, 

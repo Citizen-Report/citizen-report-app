@@ -2,7 +2,7 @@
 import React from 'react'; 
 import { Modal, Button, DropdownButton, Dropdown  } from 'react-bootstrap'
 // import { useParams } from 'react-router-dom';
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 // const UpdateComplaintPage = props => {
 
