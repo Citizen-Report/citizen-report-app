@@ -8,14 +8,11 @@ import { loginSuccess } from '../redux/authActions';
 import { Alert, Button } from 'react-bootstrap';
 import { getComplaints, createComplaints, updateComplaints } from '../redux/complaintsActions';
 
-
-
 const LoginPage = props => {
 
   const dispatch = useDispatch();
   
   const onSuccess = googleUser => {
-    
     console.log(googleUser);
     dispatch(loginSuccess(googleUser));
   }
@@ -24,24 +21,12 @@ const LoginPage = props => {
     console.log(error)
   }
 
-  const test1 = {
-        id:"2",
-        location:"1000 Trenton Blvd, San Pablo, CA",
-        zipcode:"94806",
-        lat_lon:"37.97121, -122.35544",
-        category:"Animal Control",
-        description:"wild animal, large",
-        user_ip:"059",
-        status:"Not checked",
-        created_on:"2020-12-23T01:48:43.000Z"}
-
   return (
-
     <Container>
       <Row>
         <Col>
           <Alert variant="info">
-            <h1>Hey!</h1>
+            <h1>Welcome to Citizen Report!</h1>
             <hr />
             <p>Login to access your city management dashboard.</p>
             <p>If you have trouble accessing the dashboard, contact your IT support representative.</p>
@@ -52,16 +37,9 @@ const LoginPage = props => {
             onFailure={onFailure}
           />
           </Alert>
-
-          {/* <Button onClick={() => {dispatch(getComplaints())}}>Get my complaints!</Button>
-          <Button onClick={() => {dispatch(createComplaints())}}>Create complaints!</Button>
-          <Button onClick={() => {dispatch(updateComplaints(test1))}}>Update complaints!</Button> */}
-
-
         </Col>
       </Row>
     </Container>
-
   )
 }
 
