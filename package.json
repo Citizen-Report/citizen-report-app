@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --colors",
     "dev": "webpack serve",
     "build": "webpack"
   },
@@ -21,10 +23,17 @@
   "homepage": "https://github.com/demircaner/citizen-report-app#readme",
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/plugin-syntax-jsx": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/polyfill": "^7.0.0-beta.51",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.4.2",
     "babel-loader": "^8.2.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^23.4.2",
     "webpack": "^5.11.0",
     "webpack-cli": "^4.2.0"
   },
@@ -39,7 +48,7 @@
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
     "pg": "^8.5.1",
-    "react": "^17.0.1",
+    "react": "^16.14.0",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
     "react-google-login": "^5.2.1",
