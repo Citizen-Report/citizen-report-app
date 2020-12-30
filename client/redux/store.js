@@ -4,4 +4,5 @@ import thunk from 'redux-thunk';
 
 import rootReducer from './reducers';
 
-export default createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk))); // TODO Understand wtf this does sometime
+// TODO Understand wtf this does sometime
+export default createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk))); 
