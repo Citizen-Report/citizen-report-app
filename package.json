@@ -69,6 +69,7 @@
         "redux-devtools-extension": "^2.13.8",
         "redux-thunk": "^2.3.0",
         "style-loader": "^2.0.0",
+        "selenium-webdriver": "^4.0.0-alpha.8",
         "webpack-dev-server": "^3.11.0"
     }
 }
