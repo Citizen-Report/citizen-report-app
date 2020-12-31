@@ -11,9 +11,12 @@ import { useHistory } from 'react-router-dom';
 import { manualLoginSuccess, manualLogoutSuccess } from '../redux/authActions';
 
 const LoginPage = props => {
+  //useDispatch = return store.dispatch
   const dispatch = useDispatch();
+  //Login succesfully returns data to update state with
   const onSuccess = googleUser => {
     console.log(googleUser);
+    //uses thunk to update state  after the effects have been applied to component 
     dispatch(loginSuccess(googleUser));
   }
   const onFailure = error => {
@@ -73,7 +76,7 @@ const LoginPage = props => {
         </Col>
       </Row>
     </Container>
-  )
+   )
 }
 
 export default LoginPage;
