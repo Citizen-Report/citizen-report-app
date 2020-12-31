@@ -9,12 +9,13 @@ import { Alert, Button } from 'react-bootstrap';
 import { getComplaints, createComplaints, updateComplaints } from '../redux/complaintsActions';
 
 const LoginPage = props => {
-
-  // const dispatch = useDispatch();
-  
+  //useDispatch = return store.dispatch
+  const dispatch = useDispatch();
+  //Login succesfully returns data that we must update state with
   const onSuccess = googleUser => {
     console.log(googleUser);
-    // dispatch(loginSuccess(googleUser));
+    //Dispatches action to update state 
+    dispatch(loginSuccess(googleUser));
   }
 
   const onFailure = error => {
