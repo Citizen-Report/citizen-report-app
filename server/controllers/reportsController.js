@@ -1,4 +1,4 @@
-const db = require('../models/reportsModel');
+const db = require('../models/model');
 const reportsController = {};
 
 // Get all the complaints from the database, store them in the res.locals object and pass this information to next middleware function by invoking next()
