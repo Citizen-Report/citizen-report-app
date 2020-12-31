@@ -10,7 +10,7 @@ import Form from 'react-bootstrap/Form';
 import { useHistory } from 'react-router-dom';
 import { manualLoginSuccess, manualLogoutSuccess } from '../redux/authActions';
 
-const LoginPage = props => {
+const SignupPage = props => {
   const dispatch = useDispatch();
   const onSuccess = googleUser => {
     console.log(googleUser);
@@ -36,17 +36,8 @@ const LoginPage = props => {
           <Alert variant="info">
             <h1>Welcome to Citizen Report!</h1>
             <hr />
-            <h6>Login to access your reports.</h6>
-            <p>If you have trouble accessing the dashboard, contact your IT support representative.</p>
-            <GoogleLogin
-            clientId="591081752316-fisf1og4etovgh35bcg1l99kdo5bgd2r.apps.googleusercontent.com"
-            buttonText="Login"
-            onSuccess={onSuccess}
-            onFailure={onFailure}
-            />
-            <hr />
+            <h6>Please register below to begin submitting complaints.</h6>
             <div>
-              <h6>Login without Google:</h6>
               <Form className="needs-validation">
                 <Form.Group controlId="formEmail">
                   <Form.Label>Email Address:</Form.Label>
@@ -56,18 +47,26 @@ const LoginPage = props => {
                   <Form.Label>Password</Form.Label>
                   <Form.Control type="text" placeholder="Keep it secret, keep it safe" value={password} onChange={(event) => setPassword(event.target.value)} required />
                 </Form.Group>
-                <Button onClick={() => {
-                  handleClick();
-                }}>Login!</Button>
+                <div className="d-flex justify-content-between">
+                  <Button onClick={() => {
+                    handleClick();
+                  }}>Login!</Button>
+                  <GoogleLogin clientId="591081752316-fisf1og4etovgh35bcg1l99kdo5bgd2r.apps.googleusercontent.com"
+                  buttonText="Continue with Google"
+                  onSuccess={onSuccess}
+                  onFailure={onFailure}
+                  />
+                </div>
               </Form>
+            <hr />
             </div>
             <hr />
             <div>
-              <h5>First time?</h5>
+              <h5>Already registered?</h5>
               <Button onClick={() => {
                 // redirect to Registration
-                history.push("/signup")
-              }}>Register</Button>
+                history.push("/login")
+              }}>Log In Page</Button>
             </div>
           </Alert>
         </Col>
@@ -76,4 +75,4 @@ const LoginPage = props => {
   )
 }
 
-export default LoginPage;
+export default SignupPage;
