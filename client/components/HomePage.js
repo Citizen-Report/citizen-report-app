@@ -18,14 +18,13 @@ import apiKey from '../../config';
 
 const HomePage = props => {
   const dispatch = useDispatch();
-  //useSelector to retrive state from redux store -> similar to mapStateToProps
   //state.complaints.complaints -> refers to state(store) - complaints(initial state in reducer) - complaints(actual property complaints)
   const complaintsArray = useSelector(state => state.complaints.complaints);
 
   const [show, setShow] = useState(false);
   const [currentForm, setCurrentForm] = useState({});
 
-  //after initial rendering, useEffect will invoke dispatch action getComplaints
+  // use thunk after initial rendering and useEffect will dispatch action getComplaints
   //state is updated via succesfulGetComplaints w/ complaints Reducer
   useEffect(() => {
     dispatch(getComplaints());

@@ -13,10 +13,10 @@ import { manualLoginSuccess, manualLogoutSuccess } from '../redux/authActions';
 const LoginPage = props => {
   //useDispatch = return store.dispatch
   const dispatch = useDispatch();
-  //Login succesfully returns data that we must update state with
+  //Login succesfully returns data to update state with
   const onSuccess = googleUser => {
     console.log(googleUser);
-    //Dispatches action to update state 
+    //uses thunk to update state  after the effects have been applied to component 
     dispatch(loginSuccess(googleUser));
   }
   const onFailure = error => {
