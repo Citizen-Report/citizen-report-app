@@ -14,6 +14,7 @@ import CreateComplaintPage from './components/CreateComplaintPage'
 import store from './redux/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ComplaintModal from './components/UpdateComplaintPage';
+import SignupPage from './components/SignUp';
 
 
 
@@ -29,6 +30,9 @@ const App = props => {
             </Route>
             <Route path="/login">
               <LoginPage />
+            </Route>
+            <Route path="/signup">
+              <SignupPage />
             </Route>
             <Route path="/createComplaint">
               <CreateComplaintPage />
