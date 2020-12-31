@@ -9,7 +9,7 @@ import {
     GoogleMap, 
     withScriptjs, 
     withGoogleMap, 
-    Marker, 
+    Marker,
     InfoWindow
 } from 'react-google-maps';
 // import ComplaintModal from './UpdateComplaintPage';

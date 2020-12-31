@@ -1,8 +1,7 @@
 import React from 'react'; 
 import { Modal, Button, DropdownButton, Dropdown  } from 'react-bootstrap';
 // import { useParams } from 'react-router-dom';
-// import "bootstrap/dist/css/bootstrap.min.css";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 // const UpdateComplaintPage = props => {
 //     const { complaintId } = useParams();
 //     return (
@@ -27,7 +26,7 @@ function ComplaintModal(props) {
           <Modal.Title>Complaint Details</Modal.Title>
         </Modal.Header>
         <Modal.Body >
-          <div className='d-flex justify-content-around'>
+          <div className='d-flex justify-content-between'>
             <DropdownButton id="dropdown-basic-button" title="Category">
               <Dropdown.Item href="#/action-1">Roads</Dropdown.Item>
               <Dropdown.Item href="#/action-2">Waste Management</Dropdown.Item>

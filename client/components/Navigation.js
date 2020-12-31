@@ -8,8 +8,8 @@ const Navigation = props => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a className="navbar-brand" href="#">HEY! <small>City Management</small></a>
+      <nav className="navbar fixed-top navbar-expand-sm navbar-dark bg-primary">
+        <a className="navbar-brand" href="#">Welcome! <small>City Management</small></a>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item active">
