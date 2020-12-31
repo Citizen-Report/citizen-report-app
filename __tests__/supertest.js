@@ -14,4 +14,12 @@ describe('Route integration', () => {
     });
   });
   //more describes
+  describe('/api/complaints,' () => {
+    describe('GET', () => {
+      it('responds with 200 status and complaint data', () => {
+        return request(server)
+          .get('/api/complaints')
+      })
+    })
+  })
 });
