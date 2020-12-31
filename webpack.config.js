@@ -40,6 +40,9 @@ module.exports = {
 
   devServer: {
     contentBase: path.resolve(__dirname, 'client'),
-    historyApiFallback: true, 
-  }
+    historyApiFallback: true,
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
+  },
 }
