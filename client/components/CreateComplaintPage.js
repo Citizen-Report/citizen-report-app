@@ -28,11 +28,12 @@ const CreateComplaintPage = props => {
     let longitude;
     const response = await fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + encodeURI(address) + '&key=' + apiKey);
     const data = await response.json();
+    console.log("this is your data from geocode api", data);
     latitude = data.results[0].geometry.location.lat;
     longitude = data.results[0].geometry.location.lng;
 
     //get city from zipcode entry -> look into googleapi
-    let city = 'Defaultington';
+    let city = data.results[0].address_components[2].long_name;
 
     //send dispatch once we have all data
     dispatch(createComplaints(

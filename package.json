@@ -19,9 +19,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/demircaner/citizen-report-app/issues"
+    "url": "https://github.com/windusayles/citizen-report-app/issues"
   },
-  "homepage": "https://github.com/demircaner/citizen-report-app#readme",
+  "homepage": "https://github.com/windusayles/citizen-report-app#readme",
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/plugin-syntax-jsx": "^7.12.1",

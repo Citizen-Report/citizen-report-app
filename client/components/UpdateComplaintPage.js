@@ -26,7 +26,7 @@ function ComplaintModal(props) {
           <Modal.Title>Complaint Details</Modal.Title>
         </Modal.Header>
         <Modal.Body >
-          <div className='d-flex justify-content-around'>
+          <div className='d-flex justify-content-between'>
             <DropdownButton id="dropdown-basic-button" title="Category">
               <Dropdown.Item href="#/action-1">Roads</Dropdown.Item>
               <Dropdown.Item href="#/action-2">Waste Management</Dropdown.Item>
