@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express');
 const router = express.Router();
 const db = require('../models/model');
+const cookieParser = require('cookie-parser');
+
 const reportsController = require('../controllers/reportsController');
 const authController = require('../controllers/authController');
 
@@ -28,10 +30,13 @@ router.post('/signup',
 })
 /**
  * GET /, to get current user's info based on the cookie sent from client. 
- * If valid cookie, send back JSON: { hasSession: true, userInfo: {email, city, access} }
- * If no valid cookie, send back JSON: { hasSession: false, userInfo: null}
  * Middleware: getUserInfo, send back as JSON
  */
+router.get('/', cookieParser(), authController.hasSession, authController.getUserInfo, (req, res) => {
+  const hasSession = res.locals.hasSession;
+  const userInfo = res.locals.userInfo;
+  res.status(200).json({hasSession, userInfo});
+})
 
 
 module.exports = router;
