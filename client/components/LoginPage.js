@@ -10,11 +10,11 @@ import { getComplaints, createComplaints, updateComplaints } from '../redux/comp
 
 const LoginPage = props => {
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   
   const onSuccess = googleUser => {
     console.log(googleUser);
-    dispatch(loginSuccess(googleUser));
+    // dispatch(loginSuccess(googleUser));
   }
 
   const onFailure = error => {
@@ -41,7 +41,7 @@ const LoginPage = props => {
         </Col>
       </Row>
     </Container>
-  )
+   )
 }
 
 export default LoginPage;

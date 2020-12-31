@@ -1,6 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { Modal, Button, DropdownButton, Dropdown  } from 'react-bootstrap';
+import { shallow , mount } from 'enzyme';
+import Container from 'react-bootstrap/Container';
+import { Provider,useDispatch } from 'react-redux';
+import authReducer from '../client/redux/reducers/authReducer';
+import store from '../client/redux/store';
 //Import shallow for only testing thecomponent and not asserting on children
 //Import mount to test-> if component did mount/use effect
   //component lifecycle and children behavior
@@ -14,8 +17,10 @@ import configureStore from 'redux-mock-store';
 import LoginPage from '../client/components/LoginPage';
 // import ComplaintModal from '../client/components/UpdateComplaintPage';
 
-const mockStore = configureStore();
-const initialState = {
-  
-}
 
+describe ('<Login /> page', ()=> {
+  const mockSTore = configureStore({reducer: authReducer});
+  const getWrapper = () => mount(<Provider store={}></Provider> )
+
+  
+})
