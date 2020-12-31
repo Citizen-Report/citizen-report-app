@@ -10,7 +10,7 @@ export const successfulGetComplaints = (complaints) => {
 
 export const getComplaints = () => {
   return dispatch => {
-    fetch('http://localhost:3000/api/complaints')
+    fetch('/api/complaints')
     .then((response) => {
       // console.log(response);
       return response.json();
@@ -24,7 +24,7 @@ export const getComplaints = () => {
 
 export const createComplaints = (newComplaints) => {
   return (dispatch) => {
-    fetch('http://localhost:3000/api/complaints', {
+    fetch('/api/complaints', {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       headers: {
         'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ export const createComplaints = (newComplaints) => {
 
 export const updateComplaints = (updatedComplaint) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/api/complaints/${updatedComplaint.id}`, {
+    fetch(`/api/complaints/${updatedComplaint.id}`, {
       method: 'PUT', // *GET, POST, PUT, DELETE, etc.
       headers: {
         'Content-Type': 'application/json'

@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'client/dist'),
@@ -40,6 +40,9 @@ module.exports = {
 
   devServer: {
     contentBase: path.resolve(__dirname, 'client'),
-    historyApiFallback: true, 
-  }
+    historyApiFallback: true,
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
+  },
 }
