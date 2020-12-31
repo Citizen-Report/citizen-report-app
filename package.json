@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "citizen-report-app",
   "version": "1.0.0",
   "description": "",
@@ -72,7 +71,6 @@
     "webpack-dev-server": "^3.11.0"
   }
 }
-=======
     "name": "citizen-report-app",
     "version": "1.0.0",
     "description": "",
@@ -147,4 +145,3 @@
         "webpack-dev-server": "^3.11.0"
     }
 }
->>>>>>> main
