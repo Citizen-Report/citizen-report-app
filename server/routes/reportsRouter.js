@@ -1,14 +1,15 @@
 const path = require('path');
 const express = require('express');
 const router = express.Router();
-const db = require('../models/reportsModel');
+const db = require('../models/model');
 const reportsController = require('../controllers/reportsController');
 
-console.log('Inside Reports Router');
+// console.log('Inside Reports Router');
 
 // GET request to homepage
 router.get('/complaints', reportsController.getComplaints, (req, res) => {
   // send back all the data from the database
+  console.log('hit GET /complaints');
   res.status(200).json(res.locals.complaints);
 });
 

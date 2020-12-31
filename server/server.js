@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const reportsRouter = require('./routes/reportsRouter');
+const authRouter = require('./routes/authRouter');
+
 // Parse the request body
 app.use(cors());
 app.use(express.json());
@@ -15,7 +17,12 @@ app.use('/bundle.js', express.static(path.join(__dirname, '../client/dist/bundle
 app.get('/', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });
+
+// router for complaints
 app.use('/api', reportsRouter);
+
+// router for auth
+app.use('/auth', authRouter);
 
 // catch all the route handler for any requests to unknown route
 app.use((req, res) => res.sendStatus(404));
