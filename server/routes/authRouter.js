@@ -15,9 +15,9 @@ const setReqBody = (req, res, next) => {
 
   return next();
 }
-// post login: verify user, create session, set ssid cookie, redirect to get homepage 
+// POST /login: verify user, create session, set ssid cookie, redirect to get homepage 
 
-// post signup: create user, create session, set ssid cookie, redirect to get homepage
+// POST /signup: create user, create session, set ssid cookie, redirect to get homepage
 router.post('/signup', 
   setReqBody, 
   authController.createUser,
@@ -26,10 +26,12 @@ router.post('/signup',
   (req, res) => {
     res.redirect('/');
 })
+/**
+ * GET /, to get current user's info based on the cookie sent from client. 
+ * If valid cookie, send back JSON: { hasSession: true, userInfo: {email, city, access}}
+ * If no valid cookie, send back JSON: { hasSession: false, userInfo: null}
+ * Middleware: getUserInfo, send back as JSON
+ */
 
-// router.get('/', (req, res) => {
-//   console.log('hit GET /auth/');
-//   res.status(200).end();
-// })
 
 module.exports = router;

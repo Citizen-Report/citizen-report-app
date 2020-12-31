@@ -25,6 +25,7 @@ authController.startSession = async (req, res, next) => {
   } catch (error) {
     console.error(err);
   }
+  res.locals.ssid = hash;
 
   await db.query(queryStr, [hash, email]);
   return next();
@@ -32,6 +33,17 @@ authController.startSession = async (req, res, next) => {
 
 authController.setSSIDCookie = (req, res, next) => {
   console.log('hit setSSIDCookie');
+  res.cookie('ssid', res.locals.ssid, {httpOnly: true});
+  return next();
+}
+
+authController.verifyUser = (req, res, next) => {
+  console.log('hit verifyUser');
+  return next();
+}
+
+authController.getUserInfo = (req, res, next) => {
+  console.log('hit getUserInfo');
   return next();
 }
 
