@@ -32,15 +32,16 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.4.2",
     "babel-loader": "^8.2.2",
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^23.4.2",
+    "supertest": "^6.0.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.11.0",
-    "webpack-hot-middleware": "^2.25.0",
-    "concurrently": "^5.3.0",
-    "cross-env": "^7.0.3"
+    "webpack-hot-middleware": "^2.25.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
