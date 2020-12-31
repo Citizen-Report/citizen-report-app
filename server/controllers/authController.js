@@ -37,9 +37,14 @@ authController.setSSIDCookie = (req, res, next) => {
   return next();
 }
 
-authController.verifyUser = (req, res, next) => {
+authController.verifyUser = async (req, res, next) => {
   console.log('hit verifyUser');
-  return next();
+  const { email, password } = req.body;
+  const queryStr = `SELECT email, password FROM users WHERE email = $1 AND password = $2`;
+
+  const { rows } = await db.query(queryStr, [email, password]);
+  if (!rows[0]) return res.redirect('/');
+  else return next();
 }
 
 authController.getUserInfo = (req, res, next) => {
