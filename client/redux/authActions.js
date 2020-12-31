@@ -8,3 +8,13 @@ export const loginSuccess = googleUser => ({
 export const logoutSuccess = () => ({
   type: LOGOUT_SUCCESSFUL,
 });
+
+export const manualLoginSuccess = () => ({
+  // return (dispatch => {
+
+  // })
+});
+
+export const manualLogoutSuccess = () => ({
+  
+});
