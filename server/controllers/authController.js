@@ -47,9 +47,40 @@ authController.verifyUser = async (req, res, next) => {
   else return next();
 }
 
-authController.getUserInfo = (req, res, next) => {
-  console.log('hit getUserInfo');
+/**
+ * getUserInfo: checks if cookie has a valid open session
+ * If valid cookie, send back JSON: { hasSession: true, userInfo: {email, city, access} }
+ * If no valid cookie, send back JSON: { hasSession: false, userInfo: null}
+ */
+authController.hasSession = async (req, res, next) => {
+  console.log('hit hasSession');
+  // console.log('req.cookie.ssid:', req.cookies.ssid);
+  // query sessions db for cookie
+  const queryStr = `SELECT * FROM sessions WHERE hashed_session_id = $1`;
+  const data = await db.query(queryStr, [req.cookies.ssid]);
+  // console.log(data);
+  if (data.rows.length){
+    res.locals.hasSession = true;
+    res.locals.email = data.rows[0].email;
+  } else {
+    res.locals.hasSession = false;
+  }
+  console.log('hasSession: ', res.locals.hasSession, '. user email: ', res.locals.email);
   return next();
+}
+
+authController.getUserInfo = async (req, res, next) => {
+  console.log('hit getUserInfo');
+  if (res.locals.hasSession) {
+    const queryStr = `SELECT * FROM users WHERE email = $1`;
+    const data = await db.query(queryStr, [res.locals.email]);
+
+    const {email, city, access } = data.rows[0];
+    res.locals.userInfo = {email, city, access};
+  } else {
+    res.locals.userInfo = null;
+  }
+    return next();
 }
 
 
