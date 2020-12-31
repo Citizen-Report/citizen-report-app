@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Navigation = props => {
-
+  //useSelector to extract the initial state(auth reducer)
   const auth = useSelector(state => state.auth);
 
   return (

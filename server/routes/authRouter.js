@@ -19,7 +19,14 @@ const setReqBody = (req, res, next) => {
   return next();
 }
 // POST /login: verify user, create session, set ssid cookie, redirect to get homepage 
-
+router.post('/login',
+  authController.verifyUser,
+  authController.startSession,
+  authController.setSSIDCookie,
+  (req, res) => {
+    res.redirect('/');
+  } 
+)
 // POST /signup: create user, create session, set ssid cookie, redirect to get homepage
 router.post('/signup', 
   authController.createUser,
